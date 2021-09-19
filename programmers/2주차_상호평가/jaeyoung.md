@@ -1,5 +1,6 @@
 문제링크
 [Google]: https://programmers.co.kr/learn/courses/30/lessons/83201?language=java
+
 ```
 class Solution {
     public String solution(int[][] scores) {
