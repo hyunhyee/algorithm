@@ -2,7 +2,8 @@
 [블로그] https://zoe21.tistory.com/269
 
 #1
-	public static <calNum> void main(String[] args) {
+
+	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int result = (sc.nextInt() * sc.nextInt() * sc.nextInt());
 		int check[] = new int[10];
@@ -19,7 +20,8 @@
 	}
                                      
 #2
- public static <calNum> void main(String[] args) {
+
+ 	public static  void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
 		int A = sc.nextInt();
