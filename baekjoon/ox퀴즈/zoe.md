@@ -1,6 +1,5 @@
 [문제링크] https://www.acmicpc.net/problem/8958
 
-public class Main {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int N = sc.nextInt();
@@ -25,4 +24,3 @@ public class Main {
 			System.out.println(sum);
 		}
 	}
-}
