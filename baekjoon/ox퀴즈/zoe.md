@@ -14,7 +14,7 @@
 			count = 0;
 			char arrCheck[] = arrRe[i].toCharArray();
 			for (int j = 0; j < arrCheck.length; j++) {
-				if (arrCheck[j] == 'o') {
+				if (arrCheck[j] == 'O') {
 					count++;
 					sum += count;
 				} else {
