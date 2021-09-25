@@ -2,13 +2,17 @@
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
+		
 		int N = sc.nextInt();
 		String[] arrRe = new String[N];
-
-		for (int i = 0; i < N; i++) {arrRe[i] = sc.next();}
+		
+		for (int i = 0; i < N; i++) {
+		arrRe[i] = sc.next();
+		}
+		
 		int count;
 		int sum;
-        
+		
 		for (int i = 0; i < arrRe.length; i++) {
 			sum = 0;
 			count = 0;
