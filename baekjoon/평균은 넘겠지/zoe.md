@@ -1,6 +1,5 @@
 [문제링크] https://www.acmicpc.net/problem/4344
 
-public class Ex {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int c = sc.nextInt();
@@ -22,7 +21,5 @@ public class Ex {
 				}
 			}
 			System.out.printf("%.3f%%\n", (passScore / N) * 100);
-
 		}
 	}
-}
