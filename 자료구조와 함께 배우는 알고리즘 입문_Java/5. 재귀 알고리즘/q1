@@ -12,7 +12,7 @@ public class practice1 {
             }
         } else return 1;
     }
-<span style="color:red"> 되나 </
+<span style="color:red"> 되나 </span>
 
     public static void main(String[] args) {
 
