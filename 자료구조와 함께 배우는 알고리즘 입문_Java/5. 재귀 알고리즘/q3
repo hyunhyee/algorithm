@@ -13,11 +13,21 @@ public class practice1 {
                 ;
                 a[i] = temp;
             }
-            return a[i]; 📍make gcdArray return void 에러
+            return a[i]; 📢 make gcdArray return void 에러
 
-        }
+        }         
 
     }
+    
+    
+    🐰 static int gcdArray(int a[], int start, int no) {
+		if (no == 1)
+			return a[start];
+		else if (no == 2)
+			return gcd(a[start], a[start + 1]);
+		else
+			return gcd(a[start], gcdArray(a, start + 1, no - 1));
+	}🚩
 
 
     public static void main(String[] args) {
@@ -31,6 +41,21 @@ public class practice1 {
             x = sc.nextInt();
         }
         System.out.println(gcdArray(a));
+        
+        
+        🐰
+        int num;
+		do {
+			num = stdIn.nextInt();
+		} while (num <= 1);   📍 배열에 1개 이상의 값 받을 수 있게
+
+		int[] x = new int[num];	  📍배열로 받아야 한다 여러값을 가져오니까				
+
+		for (int i = 0; i < num; i++) {
+			x[i] = stdIn.nextInt();
+		}
+
+		System.out.println("최대 공약수는 " + gcdArray(x, 0, num) + "입니다.");🚩
 
     }
 }
