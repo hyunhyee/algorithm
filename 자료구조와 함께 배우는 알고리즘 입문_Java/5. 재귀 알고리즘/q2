@@ -1,0 +1,36 @@
+```
+import java.util.Scanner;
+
+public class practice1 {
+
+    static int gcd(int x, int y) {
+      
+      int fact = 1;
+      
+      while (x > 0 || y > 0)
+          fact = x % y;
+      return fact;
+
+     🐰while (y != 0) {
+			  int temp = y;
+		  	y = x % y;
+		   	x = temp;
+	  	}
+	   	return x;🚩처음부터 y를 return 해야되는군 최대공약수가 원리 제대로 이해 못함
+
+     }
+
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int x = sc.nextInt();
+        int y = sc.nextInt();
+
+        System.out.println(gcd(x, y));
+
+    }
+}
+
+```
