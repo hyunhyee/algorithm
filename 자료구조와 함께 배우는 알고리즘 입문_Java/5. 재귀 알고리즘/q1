@@ -10,10 +10,15 @@ public class practice1 {
                 fac = n * (n - 1);
                 return fac;
             }
-        } else return 1;
+        } else return 1; 📍여기에서 class void로 바꾸라고 에러
     }
-# <span style="color:red"> 되나 </span>
-
+    
+    🐰 int fact = 1;
+		while (n > 1)
+			fact *= n--;
+		return fact; 🚩
+        
+        
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
