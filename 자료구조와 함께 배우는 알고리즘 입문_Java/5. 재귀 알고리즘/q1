@@ -1,1 +1,26 @@
+```java
+import java.util.Scanner;
 
+public class practice1 {
+
+    static int factorial(int n) {
+        int fac;
+        if (n > 0) {
+            for (int i = 1; i < n; i++) {
+                fac = n * (n - 1);
+                return fac;
+            }
+        } else return 1;
+    }
+
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int x = sc.nextInt();
+
+
+    }
+}
+```
