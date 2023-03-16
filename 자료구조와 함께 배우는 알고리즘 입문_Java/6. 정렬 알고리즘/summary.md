@@ -141,5 +141,70 @@ ___
 the fastest
 
 1. 피벗을 정해서 두 그룹으로 나누기
-2. 왼쪽 끝에서 원하는 값과 오른쪽 끝에서 원하는 값의 위치를 바꾸
- 
+2. 왼쪽 끝에서 원하는 값과 오른쪽 끝에서 원하는 값의 위치를 바꾸기
+
+```dart
+class Partition {
+
+    static void swap(int[] a, int idx1, int idx2) { 📍조건에 맞을 경우 값 교환 메서드
+        int t = a[idx1]; 
+        a[idx1] = a[idx2];  
+        a[idx2] = t;
+    }
+
+    static void partition(int[] a, int n) {
+        int pl = 0;        📍왼쪽 끝 인덱스
+        int pr = n - 1;    📍오른쪽 끝 인덱스
+        int x = a[n / 2];  📍피벗(여기서는 가운데 값)
+
+        do {
+            while (a[pl] < x) pl++;    📍피벗보다 작으면 +해서 오른쪽으로 이동
+            while (a[pr] > x) pr--;    📍피벗보다 크면 -해서 왼쪽으로 이동
+            if (pl <= pr)              📍위의 조건이 아닐 때 멈춰진 pl과 pr 인덱스 값을 비교해서 pl이 pr보다 작으면 값 pass
+                swap(a, pl++, pr--);
+        } while (pl <= pr);
+
+      
+        for (int i = 0; i <= pl - 1; i++)   ❓pl -1? 0 -1?          
+                  
+        if (pl > pr + 1) {for (int i = pr + 1; i <= pl - 1; i++)}  
+
+        for (int i = pr + 1; i < n; i++)                  
+           
+
+    public static void main(String[] args) {
+        Scanner stdIn = new Scanner(System.in);
+       
+        int nx = stdIn.nextInt();
+        int[] x = new int[nx];
+
+        for (int i = 0; i < nx; i++) {
+           x[i] = stdIn.nextInt();
+        }
+        partition(x, nx);               
+    }
+}
+
+```
+
+```dart
+❓ p229 
+* pr이 맨 앞보다 오른쪽에 있으면(left<pr) 왼쪽 그룹을 나눕니다.
+* pl이 맨 뒤보다 왼쪽에 있으면(pl<right) 오른쪽 그룹을 나눕니다.
+
+ static void quickSort(int[] a, int left, int right) {
+        int pl = left;                  
+        int pr = right;                 
+        int x = a[(pl + pr) / 2];       
+        do {
+            while (a[pl] < x) pl++;
+            while (a[pr] > x) pr--;
+            if (pl <= pr)
+                swap(a, pl++, pr--);
+        } while (pl <= pr);
+
+        if (left < pr)  quickSort(a, left, pr);  ❓ 여기서 pr값과 pl값 do-while 진행 후의 값? 
+        if (pl < right) quickSort(a, pl, right);
+    }
+```
+
