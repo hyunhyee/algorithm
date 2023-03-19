@@ -214,3 +214,50 @@ class Partition {
 # 병합 정렬
 배열을 앞부분과 뒷부분 둘로 나누어 각각 정렬한 다음 병합하는 작업 반복
 
+```dart
+class MergeArray {
+    
+    static void merge(int[] a, int na, int[] b, int nb, int[] c) { 📍a배열/a 길이/b배열/ b길이/ c배열
+        int pa = 0;
+        int pb = 0;
+        int pc = 0;
+
+        while (pa < na && pb < nb)      
+            c[pc++] = (a[pa] <= b[pb]) ? a[pa++] : b[pb++];  📍a 배열와 b 배열을 오른쪽 앞부터 비교해서 작은 수를 c배열로 보낸뒤,
+
+        while (pa < na)                   📍비교 후 마지막 인덱스 길이와 a 배열의 크기 or b배열의 크기를 비교해서 작은 a 또는 b 배열을 나머지를 c배열에 넣어준다
+            c[pc++] = a[pa++];
+
+        while (pb < nb)                  
+            c[pc++] = b[pb++];
+    }
+
+    public static void main(String[] args) {
+        Scanner stdIn = new Scanner(System.in);
+        int[] a = {2, 4, 6, 8, 11, 13};
+        int[] b = {1, 2, 3, 4, 9, 16, 21};
+        int[] c = new int[13];
+
+        System.out.println("두 개의 배열을 병합");
+
+        merge(a, a.length, b, b.length, c);     
+
+        System.out.println("배열 a와 b를 병합하여 배열 c에 저장했습니다.");
+        System.out.println("배열 a: ");
+        for (int i = 0; i < a.length; i++)
+            System.out.println("a[" + i + "] = " + a[i]);
+
+        System.out.println("배열 b: ");
+        for (int i = 0; i < b.length; i++)
+            System.out.println("b[" + i + "] = " + b[i]);
+
+        System.out.println("배열 c: ");
+        for (int i = 0; i < c.length; i++)
+            System.out.println("c[" + i + "] = " + c[i]);
+    }
+}
+
+```
+
+* 병합 정렬 구현하기 
+
