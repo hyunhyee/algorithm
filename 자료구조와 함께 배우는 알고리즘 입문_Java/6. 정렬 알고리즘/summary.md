@@ -378,6 +378,15 @@ class MergeSort {
 <https://github.com/Lugriz/typescript-algorithms/blob/master/src/algorithms/sorting/counting-sort/README.md>  
 4.배열 복사하기
 ```dart
+class CountingSort {
+    static void countingSort(int[] a, int n, int max) {
+        int[] f = new int[max + 1];       📍만약 최댓값이 120면 121번 인덱스를 만들고 그 중간에 값이 없으면 0?
+        int[] b = new int[n];             
 
+        for (int i = 0;     i < n;    i++) f[a[i]]++;                  // [Step 1]
+        for (int i = 1;     i <= max; i++) f[i] += f[i - 1];           // [Step 2]
+        for (int i = n - 1; i >= 0;   i--) b[--f[a[i]]] = a[i];        // [Step 3]
+        for (int i = 0;     i < n;    i++) a[i] = b[i];                // [Step 4]
+    }
 ```
 
