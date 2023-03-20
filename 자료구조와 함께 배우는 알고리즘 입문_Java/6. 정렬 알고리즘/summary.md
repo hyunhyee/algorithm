@@ -260,4 +260,124 @@ class MergeArray {
 ```
 
 * 병합 정렬 구현하기 
+정렬을 마친 배열의 병합을 응요하여 **분할 정복법**에 따라 정렬하는 알고리즘
+
+- 분할 정복법(Divide and Conquer)
+크고 방대한 문제를 조금씩 나눠가면서 용이하게 풀 수 있는 문제 단위로 나눈 다음 그것들을 다시 합쳐서 해결하자는 개념
+
+```dart
+class MergeSort {
+    static int[] buff;    // 작업용 배열
+
+  
+    static void __mergeSort(int[] a, int left, int right) {
+        if (left < right) {
+            int i;
+            int center = (left + right) / 2;
+            int p = 0;
+            int j = 0;
+            int k = left;
+
+            __mergeSort(a, left, center);         
+            __mergeSort(a, center + 1, right);   
+
+            for (i = left; i <= center; i++)
+                buff[p++] = a[i];
+
+            while (i <= right && j < p)
+                a[k++] = (buff[j] <= a[i]) ? buff[j++] : a[i++];
+
+            while (j < p)
+                a[k++] = buff[j++];
+        }
+    }
+
+  📍이게 꼭 있어야하나? 🚩 여기서 두 개로 나눌 수 있게 보내주고 __mergeSort에서 앞뒷부분을 각자 정렬 후에 새로운 buff 배열로 정렬된 두 개 배열을 병합!  
+    static void mergeSort(int[] a, int n) {
+        buff = new int[n];                  
+
+        __mergeSort(a, 0, n - 1);           
+
+        buff = null;                        
+    }
+
+    public static void main(String[] args) {
+        Scanner stdIn = new Scanner(System.in);
+
+        int nx = stdIn.nextInt();
+        int[] x = new int[nx];
+
+        for (int i = 0; i < nx; i++) {
+            System.out.print("x[" + i + "]: ");
+            x[i] = stdIn.nextInt();
+        }
+
+        mergeSort(x, nx);        
+
+       for (int i = 0; i < nx; i++)
+            System.out.println("x[" + i + "]=" + x[i]);
+    }
+}
+```
+
+*Arrays.sort로 퀵 정렬과 병합 정렬하기
+
+ ___
+# 힙 정렬
+**선택 정렬** 응용 알고리즘 
+
+- 선택 정렬(selection sort)  
+주어진 리스트 중에 최소값을 찾는다-> 그 값을 맨 앞에 위치한 값과 교체한다(pass)-> 맨 처음 위치를 뺀 나머지 리스트를 같은 방법으로 교체
+
+*힙(heap)
+ '부못값이 자식값보다 항상 크다'라는 조건을 만족하는 **완전 이진 트리**
+ 
+ -완전 이진 트리  
+ 부모는 자식을 왼쪽부터 추가하는 모양을 유지 + 부모가 가질 수 이쓴 자식의 최대 개수는 2
+ 
+* 힙에서 부모 자식 사이의 대소 관계는 일정 but 형제 사이의 대소 관계는 일정 X (=부분 순서 트리 partial ordered tree)  
+
+* 힙에서 가장 큰 값인 루트를 꺼낸다 -> 루트 이외의 부분을 힙으로 만든다 -> **그리고 남은 요소에서 다시 가장 큰 값을 구한다**
+
+-트리를 힙으로 만드는 과정  
+1. 루트를 꺼낸다 -> 마지막 요소를 루트로 옮긴다 -> 자기보다 큰 값을 갖는 자식 요소와 자리를 자꾸며 아래쪽으로 내려가는 작업 반복
+
+
+! 하지만 초기 상태의 배열이 힙이 아니라면, 힙정렬 전에 배열을 힙 상태로 만들어야 한다.
+
+```dart
+  static void downHeap(int[] a, int left, int right) {
+        int temp = a[left];        
+        int child;                
+        int parent;             
+
+        for (parent = left; parent < (right + 1) / 2; parent = child) {
+            int cl = parent * 2 + 1;        
+            int cr = cl + 1;              
+            child = (cr <= right && a[cr] > a[cl]) ? cr : cl;   
+            if (temp >= a[child]) ❓
+                break;
+            a[parent] = a[child];
+        }
+        a[parent] = temp;
+    }
+```
+
+  ___
+# 도수 정렬(counting sort)  
+요소의 대소 관계를 판단하지 않고 빠르게 정렬
+
+*분포도수?
+표본의 다양한 산출 분포를 보여주는 목록, 표, 그래프. 표에 들어가는 각 항목은 특정 그룹이나 주기 안에 값이 발생한 빈도나 횟수를 포함하고 있으며 이러한 방식으로 표는 표본 값의 분포를 요약
+
+1. 도수분포표 만들기
+- 배열안의 값들 중 같은 값은 분포 개수 정리
+2. 누적도수분포표 만들기
+- 각각의 값이하의 요소가 모두 몇 개인가 
+3. 목표 배열 만들기  
+<https://github.com/Lugriz/typescript-algorithms/blob/master/src/algorithms/sorting/counting-sort/README.md>  
+4.배열 복사하기
+```dart
+
+```
 
