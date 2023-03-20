@@ -375,7 +375,7 @@ class MergeSort {
 2. 누적도수분포표 만들기
 - 각각의 값이하의 요소가 모두 몇 개인가 
 3. 목표 배열 만들기  
-<https://github.com/Lugriz/typescript-algorithms/blob/master/src/algorithms/sorting/counting-sort/README.md>  
+<https://github.com/Lugriz/typescript-algorithms/blob/master/src/algorithms/sorting/counting-sort/README.md>     
 4.배열 복사하기
 ```dart
 class CountingSort {
