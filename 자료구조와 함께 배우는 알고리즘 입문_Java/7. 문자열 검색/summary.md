@@ -9,6 +9,7 @@ ___
 
 * 검색할 문자열= pattern / 문자열 원본 = text
 
-###브루트-포스법 알아보기
-
 ![Alt Text](https://miro.medium.com/v2/resize:fit:1100/1*jkD9WCeYIMIfF0n9MSbOQg.gif)
+
+___
+# KMP법
