@@ -2,38 +2,38 @@
 ```dart
 class BFmatchEx {
 
-	static int bfMatch(String txt, String pat) {
+	static int bfMatch(String txt, String pat) {abcdef / de
 		int pt = 0;			
 		int pp = 0;			
     
 		int count = 0;	
 		int k = -1;
 
-		while (pt != txt.length() && pp != pat.length()) {
-			if (k == pt - pp)                 📍패턴이 텍스트보다 길면 공백을 넣어서 다음 진행 사이에 한칸 비우기
+		while (pt != txt.length() && pp != pat.length()) {  0 = 6 동시에 0 =2 아닐 때까지
+			if (k == pt - pp)    -1 = 0-0 = 0             📍패턴이 텍스트보다 길면 공백을 넣어서 다음 진행 사이에 한칸 비우기
 				System.out.print("    ");
 			else {
-				System.out.printf("%2d  ", pt - pp);
-				k = pt - pp;
+<!-- 				System.out.printf("%2d  ", pt - pp);  ❓
+				k = pt - pp;   k = -1 -> 0
 			} 
       
 			for (int i = 0; i < txt.length(); i++)
-		  System.out.print(txt.charAt(i) + " ");
-			System.out.println();
+		        System.out.print(txt.charAt(i) + " "); 📍배열 txt에 있는 거 하나씩 출력
+			System.out.println();                  📍한칸 내리고
 
-			for (int i = 0; i < pt * 2 + 4; i++)
-			System.out.print(" ");
-			System.out.print(txt.charAt(pt) == pat.charAt(pp) ? '+' : '|');
-			System.out.println();
+			for (int i = 0; i < pt * 2 + 4; i++)     0*2+4 = 4 0<4
+			System.out.print(" "); 📍d옆으로 한칸 띄고
+			System.out.print(txt.charAt(pt) == pat.charAt(pp) ? '+' : '|'); 📍txt랑 pattern이랑 [0]인덱스 비교해서 같으면 + 아니면 |
+			System.out.println(); 📍한칸 내리고
 
-			for (int i = 0; i < (pt-pp) * 2 + 4; i++)
-				System.out.print(" ");
+			for (int i = 0; i < (pt-pp) * 2 + 4; i++)  (0-0)*2 + 4  
+				System.out.print(" ");            ❓한칸 띄기 * 오른쪽에 남은 개수
 
-			for (int i = 0; i < pat.length(); i++)
+			for (int i = 0; i < pat.length(); i++) 📍패턴 길이만큼 
 				System.out.print(pat.charAt(i) + " ");
-			System.out.println();
-			System.out.println();
-			count++;
+			        System.out.println();
+			        System.out.println();
+			        count++;
 
 			if (txt.charAt(pt) == pat.charAt(pp)) {
 				pt++;
@@ -46,20 +46,10 @@ class BFmatchEx {
 		System.out.printf("비교를 %d회 했습니다.\n", count);
 		if (pp == pat.length())		// 검색 성공
 			return pt - pp;
-		return -1;								// 검색 실패
+		return -1;								
 	}
 
 	public static void main(String[] args) {
-		Scanner stdIn = new Scanner(System.in);
-
-		System.out.print("텍스트 : ");
-		String s1 = stdIn.next(); 					// 텍스트용 문자열
-
-		System.out.print("패  턴 : ");
-		String s2 = stdIn.next();						// 패턴용 문자열
-
-		int idx = bfMatch(s1, s2);	// 문자열 s1에서 문자열 s2를 브루트-포스법으로 검색
-
 		if (idx == -1)
 			System.out.println("텍스트에 패턴이 없습니다.");
 		else {
@@ -73,19 +63,14 @@ class BFmatchEx {
 			System.out.printf(String.format("패  턴 : %%%ds\n", len), s2);
 		}
 	}
-}
-
-
 ```
 
 [Q2]
 ```dart
 class BFmatchRev {
-
-	//--- 브루트-포스법에 의한 문자열검색(맨끝쪽부터 검색) ---//
 	static int bfMatchR(String txt, String pat) {
-		int pt = txt.length() - 1;		// txt 커서
-		int pp = pat.length() - 1;		// pat 커서
+		int pt = txt.length() - 1;		
+		int pp = pat.length() - 1;		
 
 		while (pt >= 0 && pp >= 0) {
 			if (txt.charAt(pt) == pat.charAt(pp)) {
@@ -100,32 +85,6 @@ class BFmatchRev {
 			return pt + 1;
 		return -1;					// 검색 실패
 	}
-
-	public static void main(String[] args) {
-		Scanner stdIn = new Scanner(System.in);
-
-		System.out.print("텍스트 : ");
-		String s1 = stdIn.next(); 					// 텍스트용 문자열
-
-		System.out.print("패  턴 : ");
-		String s2 = stdIn.next();						// 패턴용 문자열
-
-		int idx = bfMatchR(s1, s2);	// 문자열 s1에서 문자열 s2를 브루트-포스법으로 검색
-
-		if (idx == -1)
-			System.out.println("텍스트에 패턴이 없습니다.");
-		else {
-			// 일치하는 문자 바로 앞까지의 문자 개수를 반각문자로 환산하여 구함
-			int len = 0;
-			for (int i = 0; i < idx; i++)
-				len += s1.substring(i, i + 1).getBytes().length;
-			len += s2.length();
-
-			System.out.println((idx + 1) + "번째 문자부터 일치합니다.");
-			System.out.println("텍스트 : " + s1);
-			System.out.printf(String.format("패  턴 : %%%ds\n", len), s2);
-		}
-	}
 }
 
 
@@ -133,23 +92,15 @@ class BFmatchRev {
 
 [Q3]
 ```dart
-// 연습7-3
-// KMP법에 의한 문자열검색(대조 과정을 자세히 출력)
-
-import java.util.Scanner;
-
 class KMPmatchEx {
-
-   //--- KMP법에 의한 문자열검색 ---//
-   static int kmpMatch(String txt, String pat) {
-      int pt = 1;										// txt 커서
-      int pp = 0;										// pat 커서
+     static int kmpMatch(String txt, String pat) {
+      int pt = 1;										
+      int pp = 0;								// pat 커서
       int count = 0;								// 비교 회수
       int[] skip = new int[pat.length() + 1];	// 건너뛰기 표
       int k = -1;
 
       // 건너뛰기표 작성
-      System.out.println("건너뛰기표 작성");
       skip[pt] = 0;
       while (pt != pat.length()) {
          if (k == pt - pp)
@@ -163,7 +114,7 @@ class KMPmatchEx {
          System.out.println();
 
          for (int i = 0; i < pt * 2 + 4; i++)
-            System.out.print(" ");
+         System.out.print(" ");
          System.out.print(txt.charAt(pt) == pat.charAt(pp) ? '+' : '|');
          System.out.println();
 
@@ -256,14 +207,7 @@ class KMPmatchEx {
 
 [Q4]
 ```dart
-// 연습7-4
-// Boyer-Moore법에 의한 문자열 검색(대조 과정을 자세히 출력)
-
-import java.util.Scanner;
-
 class BMmatchEx {
-
-	//--- Boyer-Moore법에 의한 문자열 검색 ---//
 	static int bmMatch(String txt, String pat) {
 		int pt;								// txt 커서
 		int pp;								// pat 커서
@@ -308,7 +252,6 @@ class BMmatchEx {
 			count++;
 
 			while (txt.charAt(pt) == pat.charAt(pp)) {
-
 				if (pp == 0)
 					return pt;         // 검색 성공
 				pp--;
@@ -341,33 +284,5 @@ class BMmatchEx {
 		}
 		return -1;									// 검색 실패
 	}
-
-	public static void main(String[] args) {
-		Scanner stdIn = new Scanner(System.in);
-
-		System.out.print("텍스트 : ");
-		String s1 = stdIn.next(); 					// 텍스트용 문자열
-
-		System.out.print("패  턴 : ");
-		String s2 = stdIn.next();						// 패턴용 문자열
-
-		int idx = bmMatch(s1, s2);	// 문자열 s1에서 문자열 s2를 BM법으로 검색
-
-		if (idx == -1)
-			System.out.println("텍스트에 패턴이 없습니다.");
-		else {
-			// 일치하는 문자 바로 앞까지의 문자 개수를 반각문자로 환산하여 구함
-			int len = 0;
-			for (int i = 0; i < idx; i++)
-				len += s1.substring(i, i + 1).getBytes().length;
-			len += s2.length();
-
-			System.out.println((idx + 1) + "번째 문자부터 일치합니다.");
-			System.out.println("텍스트 : " + s1);
-			System.out.printf(String.format("패  턴 : %%%ds\n", len), s2);
-		}
-	}
 }
-
-
 ```
