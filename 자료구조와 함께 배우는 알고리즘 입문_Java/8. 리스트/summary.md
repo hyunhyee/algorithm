@@ -26,6 +26,15 @@ ___
 - [about class](https://www.techopedia.com/definition/3214/class-java#:~:text=A%20class%20in%20Java%20is,of%20the%20%E2%80%9Ccats%E2%80%9D%20class.)
 - [제네릭](https://nimesha-wijepala.medium.com/java-generics-for-beginners-d8c561377f4d)
 
+```java
+class Node<E>{
+E data; // 필드 data의 자료형인 E가 참조형이므로 -> ❓클래스형 변수 data가 나타내는 것이 데이터 그 자체가 아니라, 데이터를 넣어 두는 인스턴스에 대한 '참조'
+Node<E> next;
+}
+```
+
+
+
 
 ___
 # 배열 커서로 연결 리스트 만들기
