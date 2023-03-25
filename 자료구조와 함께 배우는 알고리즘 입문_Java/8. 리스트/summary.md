@@ -24,7 +24,7 @@ ___
 - 리스트에 데이터를 삽입할 때 노드용 객체를 만들고, 삭제할 때 노드용 객체를 없애면 배열로 리스트를 만들 때 발생하는 문제 해결 가능
 
 - [about class](https://www.techopedia.com/definition/3214/class-java#:~:text=A%20class%20in%20Java%20is,of%20the%20%E2%80%9Ccats%E2%80%9D%20class.)
-- [제네릭](https://www.techopedia.com/definition/3214/class-java#:~:text=A%20class%20in%20Java%20is,of%20the%20%E2%80%9Ccats%E2%80%9D%20class.)
+- [제네릭]([https://www.techopedia.com/definition/3214/class-java#:~:text=A%20class%20in%20Java%20is,of%20the%20%E2%80%9Ccats%E2%80%9D%20class.](https://nimesha-wijepala.medium.com/java-generics-for-beginners-d8c561377f4d))
 
 
 ___
