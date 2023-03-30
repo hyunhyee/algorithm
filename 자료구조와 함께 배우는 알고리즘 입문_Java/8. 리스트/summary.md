@@ -358,9 +358,10 @@ public class ArrayLinkedList<E> {
 
 
 ___
-# 원형 이중 연결 리스트 만들기
+# 원형 리스트(circular list)
+- 꼬리 노드가 머리 노드를 가리키는 연결 리스트
 
-## 이중 연결 리스트
+## 이중 연결 리스트(doubly linked list)
 
 ## 원형 이중 연결 리스트 만들기
 ```java
