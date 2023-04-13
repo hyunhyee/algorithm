@@ -1,3 +1,4 @@
+```java
 public class ChainHash<K,V> {
 
 	class Node<K,V> {
@@ -96,3 +97,4 @@ public int remove(K key) {
 		}
 	}
 }
+```
