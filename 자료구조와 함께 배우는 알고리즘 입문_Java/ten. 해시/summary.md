@@ -7,6 +7,16 @@ hashing 데이터를 저장할 위치(인덱스)를 간단한 연산으로 구�
 - 해시 테이블: 해시값을 인덱스로 하여 원래의 키값을 저장한 배열
 - 버킷(bucket): 해시테이블의 각 요소
 
+![hashig table](https://media.geeksforgeeks.org/wp-content/uploads/20220701080941/ComponentsofHashing-660x342.png)
+
+
+Ex {“ab”, “cd”, “efg”}
+1. 해시 함수로 저장할 주소값 만들기
+2. "a” = 1, “b”=2, .. 
+3. "ab” = 1 + 2 = 3, “cd” = 3 + 4 = 7 , “efg” = 5 + 6 + 7 = 18  
+4. 사이즈가 7인 데이블로 각 값을 나누면, “ab” = 3, “cd” = 0, “efg” = 4
+
+
 ### 충돌
 collision 저장할 버킷이 중복되는 현상
 
